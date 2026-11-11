@@ -1,0 +1,106 @@
+@import "tailwindcss";
+
+/* ───────────────────────── Identidad visual ─────────────────────────
+   Paleta oficial del cliente. Cambia los valores aquí y se actualiza
+   todo el sitio (bg-graphite, text-brand, border-silver, etc.). */
+@theme {
+  --color-graphite: #15181e;
+  --color-navy: #10264b;
+  --color-brand: #c91e2d;
+  /* Tono más claro del rojo de marca, solo para texto pequeño sobre fondos
+     oscuros (el rojo base no alcanza el contraste mínimo en ese caso). */
+  --color-brand-light: #f0525f;
+  --color-silver: #c8cdd4;
+  --color-paper: #f5f5f5;
+
+  --font-sans: var(--font-archivo), ui-sans-serif, system-ui, "Segoe UI", Roboto, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+    background-color: var(--color-graphite);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+  body {
+    background-color: var(--color-graphite);
+    color: var(--color-paper);
+    font-stretch: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-brand-light);
+    outline-offset: 3px;
+  }
+  /* En secciones claras el foco usa el rojo de marca (mayor contraste). */
+  .surface-light :focus-visible {
+    outline-color: var(--color-brand);
+  }
+  ::selection {
+    background: var(--color-brand);
+    color: #fff;
+  }
+}
+
+/* Tipografía de títulos: Archivo en su ancho máximo, cursiva y pesada,
+   en línea con el logotipo. */
+@utility font-display {
+  font-style: italic;
+  font-weight: 800;
+  font-stretch: 125%;
+  text-transform: uppercase;
+  letter-spacing: -0.015em;
+  line-height: 0.98;
+}
+
+/* Marcador de posición para fotografías pendientes */
+@utility placeholder-hatch {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    rgb(200 205 212 / 0.07) 0,
+    rgb(200 205 212 / 0.07) 1px,
+    transparent 1px,
+    transparent 10px
+  );
+}
+
+/* ───────── Tacómetro del hero: barrido de arranque, como el tablero de un auto ───────── */
+.needle {
+  transform-box: view-box;
+  transform-origin: 300px 300px;
+  transform: rotate(-106deg);
+  animation: needle-sweep 2.8s cubic-bezier(0.45, 0.05, 0.25, 1) 0.5s both;
+}
+@keyframes needle-sweep {
+  0% {
+    transform: rotate(-135deg);
+  }
+  55% {
+    transform: rotate(132deg);
+  }
+  100% {
+    transform: rotate(-106deg);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .needle {
+    animation: none;
+  }
+}
+
+/* Variante del marcador de fotografías para fondos claros */
+@utility placeholder-hatch-dark {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    rgb(21 24 30 / 0.06) 0,
+    rgb(21 24 30 / 0.06) 1px,
+    transparent 1px,
+    transparent 10px
+  );
+}
