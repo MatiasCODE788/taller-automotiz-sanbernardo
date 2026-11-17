@@ -1,3 +1,5 @@
+import { galleryPhotos } from "@/config/images";
+
 export const navLinks = [
   { label: "Inicio", href: "#inicio" },
   { label: "Servicios", href: "#servicios" },
@@ -6,4 +8,4 @@ export const navLinks = [
   { label: "Trabajos", href: "#trabajos" },
   { label: "Reseñas", href: "#resenas" },
   { label: "Contacto", href: "#contacto" },
-] as const;
+].filter((link) => link.href !== "#trabajos" || galleryPhotos.length > 0);

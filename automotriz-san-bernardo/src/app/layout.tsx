@@ -20,7 +20,7 @@ const archivo = localFont({
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
 const description =
-  "Taller mecánico en San Bernardo con 12 años de trayectoria: mecánica general, electricidad automotriz, cajas automáticas, diagnóstico con escáner, frenos y tren delantero. Todas las marcas. Barros Arana 1944.";
+  "Taller mecánico en San Bernardo con 12 años de trayectoria: mecánica integral, electricidad automotriz, cajas automáticas, diagnóstico con escáner, frenos y tren delantero. Atención multimarca. Barros Arana 1944.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

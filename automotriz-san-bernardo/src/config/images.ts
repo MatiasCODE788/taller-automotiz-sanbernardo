@@ -26,10 +26,13 @@ export type Photo = {
 };
 
 /** Fotografía panorámica del taller para el hero. Ej: { src: "/images/hero/taller.jpg", alt: "...", width: 2400, height: 1200 } */
-export const heroPhoto: Photo | null = null;
+export const heroPhoto: Photo | null = { src: '/images/hero/taller-principal.jpg', alt: 'Interior del taller Automotriz San Bernardo', width: 1600, height: 1200 };
 
 /** Fotografías de las instalaciones para la sección "Nosotros" (recomendado: 2 o 3). */
-export const aboutPhotos: Photo[] = [];
+export const aboutPhotos: Photo[] = [
+  { src: "/images/about/taller-general.jpeg", alt: "Vista desde la entrada del taller, con tres vehículos en los elevadores", width: 1600, height: 1200 },
+  { src: "/images/about/taller-general2.jpg", alt: "Interior del taller con un auto rojo elevado y vehículos en el patio lateral", width: 1600, height: 1200 },
+];
 
 /** Fotografías de vehículos y trabajos para la galería. */
 export const galleryPhotos: Photo[] = [];

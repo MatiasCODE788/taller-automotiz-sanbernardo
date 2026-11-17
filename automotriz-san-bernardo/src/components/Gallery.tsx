@@ -24,7 +24,7 @@ export function Gallery() {
         {hasPhotos ? (
           <ul className="mt-14 columns-1 gap-4 sm:columns-2 lg:columns-3">
             {galleryPhotos.map((photo, i) => (
-              <li key={photo.src} className="mb-4 break-inside-avoid">
+              <li data-reveal key={photo.src} className="mb-4 break-inside-avoid">
                 <button
                   type="button"
                   onClick={() => setActive(i)}
@@ -52,7 +52,7 @@ export function Gallery() {
             ))}
           </ul>
         ) : (
-          <div className="mt-14 grid gap-4 sm:grid-cols-3">
+          <div data-reveal className="mt-14 grid gap-4 sm:grid-cols-3">
             <div className="placeholder-hatch-dark col-span-full flex min-h-64 flex-col py-12 items-center justify-center gap-3 rounded-[3px] border border-graphite/15 bg-graphite/[0.03] px-6 text-center text-graphite/70">
               <Camera size={30} strokeWidth={1.5} aria-hidden="true" />
               <p className="max-w-md text-pretty">

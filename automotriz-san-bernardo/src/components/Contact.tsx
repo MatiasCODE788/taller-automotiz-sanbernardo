@@ -1,7 +1,7 @@
 import { Clock, MapPin, Navigation, Phone } from "lucide-react";
 import { availableSocials, mapsEmbedUrl, mapsUrl, site, telUrl, whatsappUrl } from "@/config/site";
 import { Button } from "@/components/ui/Button";
-import { FacebookIcon, InstagramIcon, WhatsAppIcon } from "@/components/ui/Icons";
+import { SocialIcon, WhatsAppIcon } from "@/components/ui/Icons";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { HoursTable } from "@/components/HoursTable";
 import { OpenStatus } from "@/components/OpenStatus";
@@ -21,7 +21,7 @@ export function Contact() {
 
         <div className="mt-16 grid gap-14 lg:grid-cols-12">
           <div className="space-y-10 lg:col-span-5">
-            <div className="space-y-6">
+            <div data-reveal className="space-y-6">
               <div className="flex gap-4">
                 <MapPin size={22} aria-hidden="true" className="mt-0.5 shrink-0 text-brand-light" />
                 <address className="not-italic">
@@ -40,7 +40,7 @@ export function Contact() {
               </div>
             </div>
 
-            <div className="flex flex-col gap-3 sm:flex-row">
+            <div data-reveal className="flex flex-col gap-3 sm:flex-row">
               <Button href={whatsappUrl()} external size="lg" icon={<WhatsAppIcon size={20} />}>
                 Escribir por WhatsApp
               </Button>
@@ -61,7 +61,7 @@ export function Contact() {
             {socials.length > 0 ? (
               <div>
                 <p className="mb-3 font-bold text-paper">Síguenos</p>
-                <ul className="flex gap-3">
+                <ul className="flex flex-wrap gap-2">
                   {socials.map((s) => (
                     <li key={s.id}>
                       <a
@@ -69,9 +69,10 @@ export function Contact() {
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label={`${site.name} en ${s.label}`}
-                        className="inline-flex h-11 w-11 items-center justify-center rounded-[3px] border border-white/20 text-paper transition hover:border-silver hover:bg-white/10"
+                        className="inline-flex min-h-12 items-center gap-2 rounded-md border border-white/20 bg-white/5 py-1.5 pl-1.5 pr-3 text-sm font-semibold text-white transition hover:border-white/60 hover:bg-white/10"
                       >
-                        {s.id === "instagram" ? <InstagramIcon size={20} /> : <FacebookIcon size={20} />}
+                        <span className={`social-mark social-mark-${s.id}`}><SocialIcon network={s.id} size={24} /></span>
+                        {s.label}
                       </a>
                     </li>
                   ))}
@@ -80,7 +81,7 @@ export function Contact() {
             ) : null}
           </div>
 
-          <div className="lg:col-span-7">
+          <div data-reveal className="lg:col-span-7">
             <div className="h-full min-h-[22rem] overflow-hidden rounded-[3px] border border-white/10 bg-navy lg:min-h-[34rem]">
               <iframe
                 title={`Mapa de ubicación de ${site.name}`}

@@ -13,19 +13,19 @@ type SectionHeadingProps = {
 
 export function SectionHeading({ id, title, intro, tone = "dark", className }: SectionHeadingProps) {
   return (
-    <div className={cn("max-w-3xl", className)}>
+    <div data-reveal className={cn("max-w-3xl", className)}>
       <RacingLine className="mb-6" />
       <h2
         id={id}
         className={cn(
-          "font-display text-balance text-[clamp(1.6rem,3.5vw,2.75rem)]",
+          "font-display text-balance text-[clamp(1.5rem,2.8vw,2.15rem)]",
           tone === "dark" ? "text-paper" : "text-graphite",
         )}
       >
         {title}
       </h2>
       {intro ? (
-        <p className={cn("mt-5 max-w-2xl text-pretty text-lg leading-relaxed", tone === "dark" ? "text-silver" : "text-graphite/75")}>
+        <p className={cn("mt-5 max-w-2xl text-pretty text-base leading-relaxed", tone === "dark" ? "text-silver" : "text-graphite/75")}>
           {intro}
         </p>
       ) : null}

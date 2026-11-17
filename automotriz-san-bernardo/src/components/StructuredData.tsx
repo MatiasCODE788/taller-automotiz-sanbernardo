@@ -15,7 +15,7 @@ export function StructuredData() {
     "@type": "AutoRepair",
     name: site.name,
     description:
-      "Taller de mecánica integral en San Bernardo: mecánica general, electricidad automotriz, cajas automáticas, diagnóstico con escáner, frenos y tren delantero.",
+      "Taller de mecánica integral en San Bernardo: ajustes de motor, electricidad automotriz, cajas automáticas, diagnóstico con escáner, frenos y tren delantero.",
     url: siteUrl,
     image: `${siteUrl}/og.png`,
     logo: `${siteUrl}/images/brand/logo.png`,

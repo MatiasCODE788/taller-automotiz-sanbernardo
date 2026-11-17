@@ -35,12 +35,12 @@ export function Reviews() {
           <>
             <ul className="mt-14 grid gap-x-12 gap-y-10 md:grid-cols-2 lg:grid-cols-3">
               {reviews.map((r) => (
-                <li key={`${r.author}-${r.date ?? ""}`} className="border-t border-white/15 pt-6">
+                <li data-reveal key={`${r.author}-${r.date ?? ""}`} className="border-t border-white/15 pt-6">
                   <Stars rating={r.rating} />
                   <blockquote className="mt-4 text-pretty leading-relaxed text-paper">{r.text}</blockquote>
                   <p className="mt-5 font-semibold text-paper">{r.author}</p>
                   <p className="text-sm text-silver">
-                    Reseña de Google{r.date ? ` · ${r.date}` : ""}
+                    {r.excerpt ? "Extracto de reseña de Google" : "Reseña de Google"}{r.date ? ` · ${r.date}` : ""}
                     {r.url ? (
                       <>
                         {" "}
@@ -53,17 +53,17 @@ export function Reviews() {
                 </li>
               ))}
             </ul>
-            <div className="mt-14">
+            <div data-reveal className="mt-14">
               <Button href={googleListingUrl} external variant="outline" icon={<ExternalLink size={16} aria-hidden="true" />}>
                 Ver todas en Google
               </Button>
             </div>
           </>
         ) : (
-          <div className="mt-14 flex flex-col gap-8 border-t border-white/15 pt-10 md:flex-row md:items-center md:justify-between">
+          <div data-reveal className="mt-14 flex flex-col gap-8 border-t border-white/15 pt-10 md:flex-row md:items-center md:justify-between">
             <div className="flex max-w-2xl gap-5">
               <MessageSquareQuote size={36} strokeWidth={1.5} aria-hidden="true" className="mt-1 shrink-0 text-silver/60" />
-              <p className="text-pretty text-lg leading-relaxed text-silver">
+              <p className="text-pretty text-base leading-relaxed text-silver">
                 Las reseñas de nuestros clientes se mostrarán en esta sección. Mientras tanto, puedes ver la ficha del
                 taller en Google Maps.
               </p>

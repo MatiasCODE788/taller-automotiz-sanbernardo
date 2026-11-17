@@ -104,3 +104,16 @@
     transparent 10px
   );
 }
+
+.social-mark {
+  display: inline-grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: .5rem;
+  color: white;
+}
+.social-mark-instagram { background: linear-gradient(35deg, #ec8130, #c32376 50%, #6245b7); }
+.social-mark-facebook { background: #0866ff; }
+.social-mark-tiktok { background: #090909; }
+.social-mark-tiktok svg { filter: drop-shadow(-1px -1px 0 #25f4ee) drop-shadow(1px 1px 0 #fe2c55); }

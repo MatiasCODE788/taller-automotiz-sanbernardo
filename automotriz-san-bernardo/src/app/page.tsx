@@ -1,3 +1,5 @@
+import { galleryPhotos } from "@/config/images";
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { About } from "@/components/About";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
@@ -14,11 +16,12 @@ export default function HomePage() {
     <>
       <Navbar />
       <main id="contenido">
+        <ScrollReveal />
         <Hero />
         <Services />
         <Transmissions />
         <About />
-        <Gallery />
+        {galleryPhotos.length > 0 && <Gallery />}
         <Reviews />
         <Contact />
       </main>

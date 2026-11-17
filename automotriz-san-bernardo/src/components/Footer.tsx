@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { navLinks } from "@/config/navigation";
 import { availableSocials, hoursSummary, site, telUrl, whatsappUrl } from "@/config/site";
-import { FacebookIcon, InstagramIcon } from "@/components/ui/Icons";
+import { SocialIcon } from "@/components/ui/Icons";
 
 export function Footer() {
   const socials = availableSocials();
@@ -64,7 +64,7 @@ export function Footer() {
               </p>
             </address>
             {socials.length > 0 ? (
-              <ul className="mt-5 flex gap-3">
+              <ul className="mt-5 flex flex-wrap gap-2">
                 {socials.map((s) => (
                   <li key={s.id}>
                     <a
@@ -72,9 +72,10 @@ export function Footer() {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={`${site.name} en ${s.label}`}
-                      className="inline-flex h-10 w-10 items-center justify-center rounded-[3px] border border-white/20 text-paper transition hover:bg-white/10"
+                      className="inline-flex min-h-12 items-center gap-2 rounded-md border border-white/20 bg-white/5 py-1.5 pl-1.5 pr-3 text-sm font-semibold text-white transition hover:border-white/60 hover:bg-white/10"
                     >
-                      {s.id === "instagram" ? <InstagramIcon size={18} /> : <FacebookIcon size={18} />}
+                      <span className={`social-mark social-mark-${s.id}`}><SocialIcon network={s.id} size={24} /></span>
+                        {s.label}
                     </a>
                   </li>
                 ))}

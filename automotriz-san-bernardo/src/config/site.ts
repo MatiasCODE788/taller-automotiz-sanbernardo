@@ -53,8 +53,9 @@ export const site = {
    * pégalas aquí (ej. "https://www.instagram.com/usuario") y aparecerán solos.
    */
   social: {
-    instagram: null as string | null,
-    facebook: null as string | null,
+    instagram: "https://www.instagram.com/automotrizsanbernardo_/",
+    facebook: "https://www.facebook.com/andres.ybanez",
+    tiktok: "https://www.tiktok.com/@automotrizsanbernardo",
   },
 
   /**
@@ -95,9 +96,10 @@ export const googleListingUrl = site.googleBusinessUrl ?? mapsUrl;
 
 /** Redes sociales realmente disponibles (se filtran las pendientes). */
 export function availableSocials() {
-  const list: { id: "instagram" | "facebook"; label: string; href: string }[] = [];
+  const list: { id: keyof typeof site.social; label: string; href: string }[] = [];
   if (site.social.instagram) list.push({ id: "instagram", label: "Instagram", href: site.social.instagram });
   if (site.social.facebook) list.push({ id: "facebook", label: "Facebook", href: site.social.facebook });
+  if (site.social.tiktok) list.push({ id: "tiktok", label: "TikTok", href: site.social.tiktok });
   return list;
 }
 

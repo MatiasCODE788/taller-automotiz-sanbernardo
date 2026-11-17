@@ -43,3 +43,18 @@ export function FacebookIcon(props: IconProps) {
     </Base>
   );
 }
+
+function TikTokIcon(props: IconProps) {
+  return (
+    <Base {...props}>
+      <path d="M16.6 1c.3 3.3 2.1 5.3 5.4 5.5v3.7a9.7 9.7 0 0 1-5.4-1.7v7.4a7 7 0 1 1-7-7c.5 0 1 .1 1.5.2v3.9a3.3 3.3 0 1 0 1.7 2.9V1z" />
+    </Base>
+  );
+}
+
+const socialIcons = { facebook: FacebookIcon, instagram: InstagramIcon, tiktok: TikTokIcon };
+
+export function SocialIcon({ network, ...props }: IconProps & { network: keyof typeof socialIcons }) {
+  const Icon = socialIcons[network];
+  return <Icon {...props} />;
+}
